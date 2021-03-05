@@ -1,0 +1,3 @@
+include ':expressview'
+include ':app'
+rootProject.name = "Express View Demo"

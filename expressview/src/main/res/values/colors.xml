@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="default_checked_color">#FFFF0000</color>
+    <color name="default_unchecked_color">#A1A1A1A1</color>
+    <color name="default_burst_color">#FFFF0000</color>
+</resources>

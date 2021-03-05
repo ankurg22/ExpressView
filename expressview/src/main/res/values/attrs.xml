@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="ExpressView">
+        <attr name="expressIcon" format="integer" />
+        <attr name="uncheckedIconTint" format="color" />
+        <attr name="checkedIconTint" format="color" />
+        <attr name="burstColor" format="color" />
+        <attr name="setChecked" format="boolean"/>
+    </declare-styleable>
+</resources>
