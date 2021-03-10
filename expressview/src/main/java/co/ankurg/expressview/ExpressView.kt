@@ -38,9 +38,9 @@ class ExpressView : FrameLayout, View.OnClickListener {
     var animationStartDelay = 50L
     var iconAnimationDuration = 700L
     var burstAnimationDuration = 500L
-    var interpolator : Interpolator = BounceInterpolator()
+    var interpolator: Interpolator = BounceInterpolator()
 
-    var onCheckListener: OnCheckListener? = null
+    private var onCheckListener: OnCheckListener? = null
 
     public var isChecked: Boolean = false
         set(value) {
@@ -138,6 +138,10 @@ class ExpressView : FrameLayout, View.OnClickListener {
             animatorSet.start()
             onCheckListener?.onChecked(this)
         }
+    }
+
+    public fun setOnCheckListener(onCheckListener: OnCheckListener) {
+        this.onCheckListener = onCheckListener
     }
 
     private fun setupAttributes(attrs: AttributeSet?) {
