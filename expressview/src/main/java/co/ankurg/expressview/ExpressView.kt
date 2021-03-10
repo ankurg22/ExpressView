@@ -156,7 +156,7 @@ class ExpressView : FrameLayout, View.OnClickListener {
                 iconImageView.setImageDrawable(
                     ContextCompat.getDrawable(
                         context,
-                        R.drawable.ic_heart
+                        R.drawable.expressview_ic_heart
                     )
                 )
 
