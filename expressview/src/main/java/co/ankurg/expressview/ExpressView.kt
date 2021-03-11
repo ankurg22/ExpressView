@@ -4,6 +4,7 @@ import android.animation.AnimatorSet
 import android.animation.ObjectAnimator
 import android.content.Context
 import android.content.res.ColorStateList
+import android.graphics.drawable.Drawable
 import android.os.Build
 import android.util.AttributeSet
 import android.view.LayoutInflater
@@ -26,6 +27,16 @@ class ExpressView : FrameLayout, View.OnClickListener {
     private lateinit var burstView: BurstView
     private lateinit var iconImageView: ImageView
 
+    private var iconSize: Float = -1f
+
+    private var uncheckedIcon = ContextCompat.getDrawable(
+        context,
+        R.drawable.expressview_ic_heart
+    )
+    private var checkedIcon = ContextCompat.getDrawable(
+        context,
+        R.drawable.expressview_ic_heart
+    )
     private var uncheckedIconTint: Int = ContextCompat.getColor(
         context,
         R.color.default_unchecked_color
@@ -42,12 +53,14 @@ class ExpressView : FrameLayout, View.OnClickListener {
 
     private var onCheckListener: OnCheckListener? = null
 
-    public var isChecked: Boolean = false
+    var isChecked: Boolean = false
         set(value) {
             field = value
             if (isChecked) {
+                setIcon(iconImageView, checkedIcon)
                 applyIconTint(iconImageView, checkedIconTint)
             } else {
+                setIcon(iconImageView, uncheckedIcon)
                 applyIconTint(iconImageView, uncheckedIconTint)
             }
             invalidate()
@@ -104,8 +117,8 @@ class ExpressView : FrameLayout, View.OnClickListener {
         burstParams.width = size
 
         val iconParams = iconImageView.layoutParams as LayoutParams
-        iconParams.height = (size / 1.8).toInt()
-        iconParams.width = (size / 1.8).toInt()
+        iconParams.height = if (iconSize == -1f) (size / 1.8).toInt() else iconSize.toInt()
+        iconParams.width = if (iconSize == -1f) (size / 1.8).toInt() else iconSize.toInt()
 
         setMeasuredDimension(size, size)
     }
@@ -140,7 +153,7 @@ class ExpressView : FrameLayout, View.OnClickListener {
         }
     }
 
-    public fun setOnCheckListener(onCheckListener: OnCheckListener) {
+    fun setOnCheckListener(onCheckListener: OnCheckListener) {
         this.onCheckListener = onCheckListener
     }
 
@@ -153,16 +166,14 @@ class ExpressView : FrameLayout, View.OnClickListener {
                 0
             )
 
-            val drawable = typedArray.getDrawable(R.styleable.ExpressView_expressIcon)
-            if (drawable != null)
-                iconImageView.setImageDrawable(drawable)
-            else
-                iconImageView.setImageDrawable(
-                    ContextCompat.getDrawable(
-                        context,
-                        R.drawable.expressview_ic_heart
-                    )
-                )
+            iconSize = typedArray.getDimension(R.styleable.ExpressView_iconSize, iconSize)
+
+            val drawable = typedArray.getDrawable(R.styleable.ExpressView_uncheckedIcon)
+            if (drawable != null) uncheckedIcon = drawable
+            iconImageView.setImageDrawable(uncheckedIcon)
+
+            checkedIcon = typedArray.getDrawable(R.styleable.ExpressView_checkedIcon)
+            if (checkedIcon == null) checkedIcon = uncheckedIcon
 
             uncheckedIconTint = typedArray.getColor(
                 R.styleable.ExpressView_uncheckedIconTint,
@@ -185,7 +196,11 @@ class ExpressView : FrameLayout, View.OnClickListener {
         }
     }
 
-    private fun applyIconTint(heartImageView: ImageView, tint: Int) {
-        ImageViewCompat.setImageTintList(heartImageView, ColorStateList.valueOf(tint))
+    private fun setIcon(iconImageView: ImageView, iconDrawable: Drawable?) {
+        iconImageView.setImageDrawable(iconDrawable)
+    }
+
+    private fun applyIconTint(iconImageView: ImageView, tint: Int) {
+        ImageViewCompat.setImageTintList(iconImageView, ColorStateList.valueOf(tint))
     }
 }

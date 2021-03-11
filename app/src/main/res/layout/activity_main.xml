@@ -22,12 +22,12 @@
         android:layout_height="64dp"
         app:burstColor="@color/purple_700"
         app:checkedIconTint="@color/purple_700"
-        app:expressIcon="@drawable/ic_like"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/bulbView"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/heartView"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:uncheckedIcon="@drawable/ic_like" />
 
     <co.ankurg.expressview.ExpressView
         android:id="@+id/bulbView"
@@ -35,12 +35,12 @@
         android:layout_height="64dp"
         app:burstColor="@color/burstYellow"
         app:checkedIconTint="@color/bulbYellow"
-        app:expressIcon="@drawable/ic_bulb"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/fireView"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/likeView"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:uncheckedIcon="@drawable/ic_bulb" />
 
     <co.ankurg.expressview.ExpressView
         android:id="@+id/fireView"
@@ -48,10 +48,10 @@
         android:layout_height="64dp"
         app:burstColor="@color/burstYellow"
         app:checkedIconTint="@color/fireYellow"
-        app:expressIcon="@drawable/ic_fire"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/bulbView"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:uncheckedIcon="@drawable/ic_fire" />
 </androidx.constraintlayout.widget.ConstraintLayout>

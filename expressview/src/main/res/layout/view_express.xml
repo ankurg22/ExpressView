@@ -4,8 +4,8 @@
 
     <co.ankurg.expressview.BurstView
         android:id="@+id/burstView"
-        android:layout_width="@dimen/default_view_express_dimen"
-        android:layout_height="@dimen/default_view_express_dimen"
+        android:layout_width="@dimen/default_view_dimen"
+        android:layout_height="@dimen/default_view_dimen"
         android:layout_gravity="center" />
 
     <ImageView
