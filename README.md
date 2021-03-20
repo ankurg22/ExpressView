@@ -1,6 +1,7 @@
 # ExpressView
-A micro-interaction library which enables animation for various actions or reactions. Similar to Twitter like button or other social media apps.
-![Platform][5] ![API][6]
+A micro-interaction library which enables animation for various actions or reactions. Inspired from Twitter's and Instagram's like button animation.
+
+![Platform][5] ![API][6] [![Twitter][7]][8]
 
 ![ExpressView sample gif][4]
 ### Gradle Dependency
@@ -43,7 +44,8 @@ likeButton.setOnCheckListener(object : OnCheckListener {
 |iconSize|Size of icon, applied to both widht & height|Dimension|55% of ExpressView|
 |burstColor|Color of line burst behind the icon|Color|#FFFF0000|
 |setChecked|Initial check state of icon|Boolean|false|
-Note:- Deafult ExpressView size is 48dp and iconSize is 26dp (55% of 48dp) 
+
+Note:- Default ExpressView size is 48dp and iconSize is 26dp (55% of 48dp) 
 ### Public Kotlin/Java properties
 |Name|Description|Value|Default|
 |---|---|---|---|
@@ -60,3 +62,5 @@ Note:- Deafult ExpressView size is 48dp and iconSize is 26dp (55% of 48dp)
 [4]: gif/like-button-animation-express-view.gif
 [5]: https://img.shields.io/badge/Platform-android-blue.svg
 [6]: https://img.shields.io/badge/API-16%2B-brightgreen.svg?style=flat
+[7]: https://img.shields.io/badge/Twitter-@ankurg2204-blue.svg?style=flat
+[8]: http://twitter.com/ankurg2204
